@@ -14,11 +14,16 @@ class Question:
             try:
                 choice = int(input("Enter your choice (1-4): "))
                 if 1 <= choice <= 4:
-                    return choice == self.answer
+                    if choice == self.answer:
+                        print("✅ Correct!\n")
+                        return True
+                    else:
+                        print(f"❌ Wrong! Correct answer is: {self.options[self.answer - 1]}\n")
+                        return False
                 else:
-                    print("Please choose between 1 and 4.")
+                    print("Please choose a number between 1 and 4.")
             except ValueError:
-                print("Invalid input. Please enter a number between 1 and 4.")
+                print("Invalid input. Please enter a number.")
 
 
 class QuizGame:
@@ -27,15 +32,21 @@ class QuizGame:
         self.score = 0
 
     def start(self):
-        print("\nWelcome to the Quiz Game!")
-        print("---------------------------")
+        print("\n🎉 Welcome to the Quiz Game!")
+        print("------------------------------")
+        self.score = 0
         for q in self.questions:
             if q.ask():
-                print("Correct!\n")
                 self.score += 1
-            else:
-                print("Wrong!\n")
-        print(f"Quiz finished! Your final score: {self.score}/{len(self.questions)}")
+        print(f"🎯 Your final score: {self.score}/{len(self.questions)}")
+
+    def play(self):
+        while True:
+            self.start()
+            again = input("Do you want to play again? (yes/no): ").lower()
+            if again != "yes":
+                print("Thank you for playing! 👋")
+                break
 
 
 # List of Questions
@@ -49,5 +60,5 @@ questions = [
 
 # Start Game
 game = QuizGame(questions)
-game.start()
-git init
+game.play()
+1
