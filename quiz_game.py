@@ -32,8 +32,8 @@ class QuizGame:
         self.score = 0
 
     def start(self):
-        print("\n🎉 Welcome to the Quiz Game!")
-        print("------------------------------")
+        print("\n🎉 Welcome to the Python Quiz Game!")
+        print("----------------------------------")
         self.score = 0
         for q in self.questions:
             if q.ask():
@@ -49,16 +49,21 @@ class QuizGame:
                 break
 
 
-# List of Questions
+# List of 10 Python Questions
 questions = [
-    Question("What is the capital of Pakistan?", ["Lahore", "Islamabad", "Karachi", "Quetta"], 2),
-    Question("2 + 2 = ?", ["3", "4", "5", "2"], 2),
-    Question("Who is the founder of Pakistan?", ["Iqbal", "Sir Syed", "Jinnah", "Bhutto"], 3),
-    Question("What is the color of sky?", ["Blue", "Green", "Yellow", "Red"], 1),
-    Question("HTML stands for?", ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "High Text Machine Language"], 1),
+    Question("What is the correct file extension for Python files?", [".py", ".python", ".pt", ".pyt"], 1),
+    Question("Which keyword is used to define a function in Python?", ["function", "def", "fun", "define"], 2),
+    Question("What data type is the result of: 3 + 2.5?", ["int", "float", "str", "bool"], 2),
+    Question("Which loop is used to iterate over a sequence?", ["for", "while", "if", "switch"], 1),
+    Question("How do you insert COMMENTS in Python code?", ["//comment", "#comment", "/*comment*/", "--comment"], 2),
+    Question("Which operator is used for exponentiation (power) in Python?", ["^", "**", "exp()", "pow()"], 2),
+    Question("What is the output of 'bool(0)' in Python?", ["True", "False", "None", "0"], 2),
+    Question("Which keyword is used to handle exceptions in Python?", ["catch", "error", "except", "exception"], 3),
+    Question("How do you start a Python list?", ["()", "{}", "[]", "<>"], 3),
+    Question("What is the correct way to create a dictionary in Python?", ["[]", "()", "{}", "<>"], 3),
 ]
 
 # Start Game
-game = QuizGame(questions)
-game.play()
-1
+if __name__ == "__main__":
+    game = QuizGame(questions)
+    game.play()
